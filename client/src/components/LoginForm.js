@@ -1,30 +1,20 @@
-import React, {PropTypes} from 'react'
-import {Link} from 'react-router'
-import {Card, CardText} from 'material-ui/Card'
+import React, { PropTypes} from 'react'
+import { Link } from 'react-router'
+import { Card, CardText } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
-const SignUpForm = ({
+const Loginform = ({
     onSubmit,
     onChange,
     errors,
-    users,
+    user
 }) => (
     <Card className='container'>
-        <form action='/' onSubmit={onSubmit}>
-            <h2 className='card-heading'>Sign Up </h2>
-            
-            {errors.summary && <p className='error-message'>{errors.summary}</p>}
-            
-            <div className='field-line'>
-                <TextField
-                    floatingLabelText='Name'
-                    name='name'
-                    errorText={errors.name}
-                    onChange={onChange}
-                    value={user.name}
-                />
-            </div>
+        <form action='/' onSubmit={onSubmit}
+            <h2 className='card-heading'>Login</h2>
+    
+            {errors.summary && <p className='error-message'}>{errors.summary}</p>
     
             <div className='field-line'>
                 <TextField
@@ -35,28 +25,33 @@ const SignUpForm = ({
                     value={user.email}
                 />
             </div>
-            
-            <div className='field-line'>
+    
+            <div className='fielad-line'
                 <TextField
                     floatingLabelText='Password'
                     type='password'
                     name='password'
-                    onChange={onChange}
                     errorText={errors.password}
+                    onChange={onChange}
                     value={user.password}
                 />
             </div>
     
-            <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
+            <div className='button-line'>
+                <RaisedButton type='submit' label='Log in' primary />
+            </div>
+    
+            <CardText>Don't have an account? <Link to={'/signup'}Create one</Link>.</CardText>
         </form>
     </Card>
 )
 
-SignUpForm.propTypes = {
+
+LoginForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired
 }
 
-export default SignUpForm
+export default LoginForm
