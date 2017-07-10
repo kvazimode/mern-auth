@@ -8,7 +8,7 @@ const SignUpForm = ({
     onSubmit,
     onChange,
     errors,
-    users,
+    user,
 }) => (
     <Card className='container'>
         <form action='/' onSubmit={onSubmit}>
@@ -45,6 +45,10 @@ const SignUpForm = ({
                     errorText={errors.password}
                     value={user.password}
                 />
+            </div>
+    
+            <div className='button-line'>
+                <RaisedButton type='submit' label='Create new account' primary />
             </div>
     
             <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>

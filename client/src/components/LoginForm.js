@@ -4,17 +4,17 @@ import { Card, CardText } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
-const Loginform = ({
+const LoginForm = ({
     onSubmit,
     onChange,
     errors,
     user
 }) => (
     <Card className='container'>
-        <form action='/' onSubmit={onSubmit}
+        <form action='/' onSubmit={onSubmit}>
             <h2 className='card-heading'>Login</h2>
     
-            {errors.summary && <p className='error-message'}>{errors.summary}</p>
+            {errors.summary && <p className='error-message'>{errors.summary}</p>}
     
             <div className='field-line'>
                 <TextField
@@ -26,7 +26,7 @@ const Loginform = ({
                 />
             </div>
     
-            <div className='fielad-line'
+            <div className='fielad-line'>
                 <TextField
                     floatingLabelText='Password'
                     type='password'
@@ -41,7 +41,7 @@ const Loginform = ({
                 <RaisedButton type='submit' label='Log in' primary />
             </div>
     
-            <CardText>Don't have an account? <Link to={'/signup'}Create one</Link>.</CardText>
+            <CardText>Dont have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
         </form>
     </Card>
 )
